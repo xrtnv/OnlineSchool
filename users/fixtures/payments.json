@@ -1,0 +1,123 @@
+[
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 0,
+    "fields": {
+      "user": 1,
+      "payment_date": "2023-01-01",
+      "course": 1,
+      "amount": 100.00,
+      "payment_method": "transfer"
+    }
+  }
+]

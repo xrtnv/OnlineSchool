@@ -1,0 +1,10 @@
+[
+  {
+    "model": "lms.course",
+    "pk": 1,
+    "fields": {
+      "title": "Sample Course",
+      "description": "This is a sample course."
+    }
+  }
+]
