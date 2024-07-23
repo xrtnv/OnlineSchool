@@ -1,10 +1,7 @@
-from rest_framework import permissions
+from rest_framework.permissions import BasePermission
 
 
-class IsOwner(permissions.BasePermission):
-    """
-    Право доступа, позволяющее объекты редактировать и удалять только их владельцам.
-    """
-
+class IsOwner(BasePermission):
     def has_object_permission(self, request, view, obj):
         return obj.owner == request.user
+
