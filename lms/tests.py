@@ -62,8 +62,6 @@ class LessonCRUDTests(APITestCase):
     def test_update_lesson(self):
         self.client.force_authenticate(user=self.moderator)
         url = reverse('lesson-detail', kwargs={'pk': self.lesson.id})
-        with open('C:\\Users\\elliot\\PycharmProjects\\DRF\\lms\\lessons\\previews\\defImage.jpg', 'rb') as img:
-            image_content = img.read()
 
         data = {
             'title': 'New Lesson',
