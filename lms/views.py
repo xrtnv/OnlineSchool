@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import status, permissions
+from rest_framework import status, permissions, generics
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions, BasePermission, SAFE_METHODS
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -40,6 +40,16 @@ class LessonViewSet(ModelViewSet):
         else:
             permission_classes = [IsAuthenticated, IsOwner]
         return [permission() for permission in permission_classes]
+
+
+class LessonList(generics.ListCreateAPIView):
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
+
+
+class LessonDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
 
 
 class SubscriptionAPIView(APIView):

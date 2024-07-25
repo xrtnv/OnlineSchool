@@ -105,8 +105,12 @@ WSGI_APPLICATION = 'DRF.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "lms",
+        'USER': "postgres",
+        "PASSWORD": "4377htcnhbrtlntllwdAAAXBNVG",
+        "HOST": "localhost",
+        "PORT": "5432"
     }
 }
 
@@ -134,6 +138,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = "users.User"
 
 STATIC_URL = 'static/'
 
