@@ -68,7 +68,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'lms.apps.LmsConfig',
-    'django_filters'
+    'payments.apps.PaymentsConfig',
+    'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -107,11 +109,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': "lms",
         'USER': "postgres",
-        "PASSWORD": "4377htcnhbrtlntllwdAAAXBNVG",
+        "PASSWORD": "fsociety1.dat",
         "HOST": "localhost",
         "PORT": "5432"
     }
 }
+STRIPE_API_KEY = "sk_test_26PHem9AhJZvU623DfE1x4sd"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -136,7 +139,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users.CustomUser"
 
 STATIC_URL = 'static/'
 
