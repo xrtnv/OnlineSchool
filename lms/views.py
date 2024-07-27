@@ -27,19 +27,22 @@ class CourseViewSet(ModelViewSet):
         return [permission() for permission in permission_classes]
 
 
-class LessonViewSet(ModelViewSet):
+class LessonCreate(generics.CreateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
-    pagination_class = StandardResultsSetPagination
+    permission_classes = [IsAuthenticated, IsOwner]
 
-    def get_permissions(self):
-        if self.action in ['update', 'partial_update', 'list', 'retrieve']:
-            permission_classes = [IsAuthenticated, IsModerator]
-        elif self.action == 'destroy':
-            permission_classes = [IsAuthenticated, IsModerator]
-        else:
-            permission_classes = [IsAuthenticated, IsOwner]
-        return [permission() for permission in permission_classes]
+
+class LessonUpdate(generics.UpdateAPIView):
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
+    permission_classes = [IsAuthenticated, IsOwner]
+
+
+class LessonDelete(generics.DestroyAPIView):
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
+    permission_classes = [IsAuthenticated, IsOwner]
 
 
 class LessonList(generics.ListCreateAPIView):
