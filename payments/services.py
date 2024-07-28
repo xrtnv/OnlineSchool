@@ -5,19 +5,21 @@ stripe.api_key = settings.STRIPE_API_KEY
 
 
 def create_stripe_product(name):
-    return stripe.Product.create(name=name)
+    product = stripe.Product.create(name=name)
+    return product.id
 
 
 def create_stripe_price(product_id, amount):
-    return stripe.Price.create(
+    price = stripe.Price.create(
         product=product_id,
         unit_amount=amount,
         currency='usd',
     )
+    return price.id
 
 
 def create_stripe_checkout_session(price_id, success_url, cancel_url):
-    return stripe.checkout.Session.create(
+    session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
             'price': price_id,
@@ -27,3 +29,4 @@ def create_stripe_checkout_session(price_id, success_url, cancel_url):
         success_url=success_url,
         cancel_url=cancel_url,
     )
+    return session.url
