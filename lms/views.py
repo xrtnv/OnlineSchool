@@ -5,10 +5,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
-from users.permissions import IsModerator
+from users.permissions import IsModeratorOrOwner
 from .models import Course, Lesson, Subscription
 from .paginators import StandardResultsSetPagination
-from .permissions import IsOwner
 from .serializers import CourseSerializer, LessonSerializer
 
 
@@ -16,33 +15,25 @@ class CourseViewSet(ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
     pagination_class = StandardResultsSetPagination
-
-    def get_permissions(self):
-        if self.action in ['update', 'partial_update', 'list', 'retrieve']:
-            permission_classes = [IsAuthenticated, IsModerator]
-        elif self.action == 'destroy':
-            permission_classes = [IsAuthenticated, IsOwner]
-        else:
-            permission_classes = [IsAuthenticated, IsOwner]
-        return [permission() for permission in permission_classes]
+    permission_classes = [IsModeratorOrOwner]
 
 
 class LessonCreate(generics.CreateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
-    permission_classes = [IsAuthenticated, IsOwner]
+    permission_classes = [IsAuthenticated, IsModeratorOrOwner]
 
 
 class LessonUpdate(generics.UpdateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
-    permission_classes = [IsAuthenticated, IsOwner]
+    permission_classes = [IsAuthenticated, IsModeratorOrOwner]
 
 
 class LessonDelete(generics.DestroyAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
-    permission_classes = [IsAuthenticated, IsOwner]
+    permission_classes = [IsAuthenticated, IsModeratorOrOwner]
 
 
 class LessonList(generics.ListCreateAPIView):
