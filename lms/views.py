@@ -1,4 +1,8 @@
+from datetime import timedelta
+from .tasks import send_course_update_email
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -63,3 +67,20 @@ class SubscriptionAPIView(APIView):
             message = 'Подписка добавлена'
 
         return Response({"message": message}, status=status.HTTP_200_OK)
+
+
+def update_course(request, course_id):
+    course = Course.objects.get(id=course_id)
+    now = timezone.now()
+
+    if course.last_updated and now - course.last_updated < timedelta(hours=4):
+        return HttpResponse("Course was updated less than 4 hours ago.", status=400)
+
+    course.title = request.POST.get('title')
+    course.description = request.POST.get('description')
+    course.last_updated = now
+    course.save()
+
+    send_course_update_email.delay(course.id)
+
+    return HttpResponse("Course updated successfully.")
