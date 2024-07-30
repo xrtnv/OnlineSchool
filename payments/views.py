@@ -7,7 +7,8 @@ from .services import create_stripe_product, create_stripe_price, create_stripe_
 class CreatePaymentView(View):
     http_method_names = ['post']  # Allow only POST requests
 
-    def post(self, request):
+    @staticmethod
+    def post(request):
         product_name = request.POST.get('product_name')
         product_price = int(request.POST.get('product_price')) * 100  # Convert to cents
 

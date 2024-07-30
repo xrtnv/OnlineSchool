@@ -114,8 +114,6 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_TZ = True
 
-CELERY_TIMEZONE = 'UTC'
-
 USE_I18N = True
 
 AUTH_USER_MODEL = "users.CustomUser"
